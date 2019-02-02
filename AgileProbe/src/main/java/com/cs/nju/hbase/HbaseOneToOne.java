@@ -1,0 +1,17 @@
+package com.cs.nju.hbase;
+
+import java.lang.annotation.Retention;
+import java.lang.annotation.Target;
+
+import static java.lang.annotation.ElementType.FIELD;
+import static java.lang.annotation.RetentionPolicy.RUNTIME;
+
+@Target(FIELD) 
+@Retention(RUNTIME)
+public @interface HbaseOneToOne {
+	boolean changeKey() default false;		
+	String orderKey() default "";	
+	String joinField();		
+	Class<?> joinTableDao();	
+	boolean lazy() default true;	
+}
