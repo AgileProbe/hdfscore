@@ -5,7 +5,6 @@ package com.cs.nju.entity;
  */
 public class Data {
 
-    //router 如果没有�?要补�?
     private String router;
     private String mac;
     private String rssi;
