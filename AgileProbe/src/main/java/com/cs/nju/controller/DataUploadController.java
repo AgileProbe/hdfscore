@@ -4,6 +4,7 @@ package com.cs.nju.controller;
 import com.alibaba.fastjson.JSON;
 import com.cs.nju.entity.Data;
 import com.cs.nju.entity.DataGroup;
+import com.cs.nju.hdfs.HDFSWriter;
 import com.cs.nju.kafka.consumer.KafkaConsumerForHive;
 import com.cs.nju.kafka.consumer.KafkaConsumers;
 import com.cs.nju.kafka.producer.KafkaProducerForHive;
@@ -21,6 +22,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
 import java.io.UnsupportedEncodingException;
+import java.io.Writer;
 import java.net.URLDecoder;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -34,7 +36,7 @@ import java.util.List;
 public class DataUploadController {
 	@Autowired
 	private DataUploadService dataUploadService;
-
+	private static HDFSWriter Writer = new HDFSWriter("localhost:9000");
 	@Resource(name = "kafkaProducers")
 	KafkaProducers producers;
 	@Resource(name = "kafkaConsumers")
@@ -99,8 +101,8 @@ public class DataUploadController {
 				String resJson = JSON.toJSONString(group);
 
 				System.err.println("resJson ---> " + StringEscapeUtils.escapeJava(resJson));
-
-				producers.sendMessage(resJson);// 鍙戦�佹暟鎹埌kafka topic : test,杩涜鏁版嵁鍒嗘�?
+				Writer.write(resJson);
+				//producers.sendMessage(resJson);// 鍙戦�佹暟鎹埌kafka topic : test,杩涜鏁版嵁鍒嗘�?
 				// producerForHive.sendMessage(resJson);//鍙戦�佹暟鎹埌topic : hiveData,瀛樻斁鍒癶ive涓�
 
 			} catch (Exception e) {
