@@ -66,3 +66,7 @@ com.cs.scu.tools.Util
 调用Kafka消息生产者send()函数，将数据push到消息队列中。
 系统会通过调用工具类Util中的hiveTask()函数执行计划任务，启动kafka消费者，将原始
 数据存入hive中。此外集群可以通过调用此消费者，或者自己实现消费者消费消息队列中的数据。
+
+
+>[赛题链接](http://www.cnsoftbei.com/bencandy.php?fid=148&aid=1515)
+
