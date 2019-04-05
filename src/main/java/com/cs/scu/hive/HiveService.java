@@ -21,7 +21,7 @@ public class HiveService {
      * @return
      * @throws SQLException
      */
-    public static Connection getConn(){
+    public static Connection getConn(){//创建连接
         Connection conn = null;
         try {
             Class.forName(dirverName);

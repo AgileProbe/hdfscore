@@ -38,6 +38,7 @@ public class LoginController {
     }
 
     @RequestMapping("/verifyUser")
+    //确认用户
     public String UserVerify( @RequestParam(value="userName") String userName) throws Exception {
         User user = new User();
         user.setUserName(userName);
