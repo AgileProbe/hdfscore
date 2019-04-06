@@ -13,7 +13,7 @@ public class HiveService {
     //连接hive的URL hive1.2.1版本需要的是jdbc:hive2，而不是 jdbc:hive
     public static String url = "jdbc:hive2://localhost:10000/default";
 
-    //系统登录用的密码和账号
+    
     public static String user = "root";
     public static String pass = "Icandobigdata!";
     /**

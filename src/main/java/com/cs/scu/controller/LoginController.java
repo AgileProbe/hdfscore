@@ -32,7 +32,6 @@ public class LoginController {
             return loginUser.getNickName();
         }
         else{
-            //密码错误
             return "failed";
         }
     }

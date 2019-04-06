@@ -21,9 +21,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.Properties;
 
-/**
- * Created by lch on 2017/6/24.
- */
 public class KafkaConsumerForHive {
     Properties properties;
     Connection con;
@@ -43,7 +40,8 @@ public class KafkaConsumerForHive {
     public void setProperties(Properties properties) {
         this.properties = properties;
     }
-
+    
+    
     public String receive() {
         KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(properties);
         consumer.subscribe(Arrays.asList(properties.getProperty("topic")));
