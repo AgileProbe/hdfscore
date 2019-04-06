@@ -35,7 +35,6 @@ public class BaseHbaseDao<T> {
 		HbaseTable table = type.getAnnotation(HbaseTable.class);
 		tableName = table.name();
 		rowKeyField = type.getDeclaredField(table.rowKey());
-		//初始化
 		couple_field_mapping = new HashMap<HbaseColCouple,Field>();
 		fieldName_couple_mapping = new HashMap<String,HbaseColCouple>();
 		fieldName_field_mapping = new HashMap<String,Field>();
